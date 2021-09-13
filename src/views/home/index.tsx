@@ -8,6 +8,7 @@ import { useMarkets } from "../../contexts/market";
 import { useUserBalance, useUserTotalBalance } from "../../hooks";
 import { WRAPPED_SOL_MINT } from "../../utils/ids";
 import { formatUSD } from "../../utils/utils";
+import { SceneWithSpinningBoxes } from "/home/nick/dapp-scaffold/src/components/SpinningBoxes";
 
 export const HomeView = () => {
   const { marketEmitter, midPriceInUSD } = useMarkets();
@@ -32,7 +33,7 @@ export const HomeView = () => {
   }, [marketEmitter, midPriceInUSD, tokenMap]);
 
   return (
-    <Row gutter={[16, 16]} align="middle">
+    <Row>
       <Col span={24}>
         <h2>Your balances ({formatUSD.format(totalBalanceInUSD)}):</h2>
         <h2>
@@ -43,17 +44,8 @@ export const HomeView = () => {
           {formatUSD.format(SRM?.balanceInUSD)})
         </h2>
       </Col>
-
-      <Col span={12}>
-        <WalletMultiButton type="ghost" />
-      </Col>
-      <Col span={12}>
-        <Link to="/faucet">
-          <Button>Faucet</Button>
-        </Link>
-      </Col>
       <Col span={24}>
-        <div className="builton" />
+        <SceneWithSpinningBoxes />
       </Col>
     </Row>
   );
