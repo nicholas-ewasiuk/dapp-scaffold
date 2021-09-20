@@ -14,8 +14,12 @@ export const HomeView = () => {
   const { marketEmitter, midPriceInUSD } = useMarkets();
   const { tokenMap } = useConnectionConfig();
   const SRM_ADDRESS = "SRMuApVNdxXokk5GT7XD5cUUgXMBCoAz2LHeuAoKWRt";
+  const RAY_ADDRESS = "4k3Dyjzvzp8eMZWUXbBCjEvwSkkk59S5iCNLY3QrkX6R";
+  const POLIS_ADDRESS = "poLisWXnNRwC6oBu1vHiuKQzFjGL4XDSu4g9qjz9qVk";
   const SRM = useUserBalance(SRM_ADDRESS);
   const SOL = useUserBalance(WRAPPED_SOL_MINT);
+  const RAY = useUserBalance(RAY_ADDRESS);
+  const POLIS = useUserBalance(POLIS_ADDRESS);
   const { balanceInUSD: totalBalanceInUSD } = useUserTotalBalance();
 
   useEffect(() => {
@@ -40,9 +44,13 @@ export const HomeView = () => {
           SOL: {SOL.balance} ({formatUSD.format(SOL.balanceInUSD)})
         </h2>
         <h2 style={{ display: "inline-flex", alignItems: "center" }}>
-          <TokenIcon mintAddress={SRM_ADDRESS} /> SRM: {SRM?.balance} (
-          {formatUSD.format(SRM?.balanceInUSD)})
+          <TokenIcon mintAddress={POLIS_ADDRESS} /> POLIS: {POLIS?.balance} (
+          {formatUSD.format(POLIS?.balanceInUSD)})
         </h2>
+        <h2 style={{ display: "inline-flex", alignItems: "center" }}>
+          <TokenIcon mintAddress={RAY_ADDRESS} /> RAY: {RAY?.balance} (
+          {formatUSD.format(RAY?.balanceInUSD)})
+          </h2>
       </Col>
       <Col span={24}>
         <SceneWithSpinningBoxes />
