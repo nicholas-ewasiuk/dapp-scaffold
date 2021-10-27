@@ -2,6 +2,7 @@ import { WalletMultiButton } from "@solana/wallet-adapter-ant-design";
 import { Button, Col, Row } from "antd";
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { SendOneLamportToRandomAddress } from "../../components/SendRandomTx";
 import { TokenIcon } from "../../components/TokenIcon";
 import { useConnectionConfig } from "../../contexts/connection";
 import { useMarkets } from "../../contexts/market";
@@ -51,6 +52,12 @@ export const HomeView = () => {
           <TokenIcon mintAddress={RAY_ADDRESS} /> RAY: {RAY?.balance} (
           {formatUSD.format(RAY?.balanceInUSD)})
           </h2>
+          <SendOneLamportToRandomAddress />
+      </Col>
+      <Col span={12}>
+        <Link to="/faucet">
+          <Button>Faucet</Button>
+        </Link>
       </Col>
       <Col span={24}>
         <SceneWithSpinningBoxes />
